@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ListViewTest.MainPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <Label Grid.Row="0" Text="Share" VerticalOptions="Center" HorizontalOptions="End"/>
+            <!-- <ImageButton Source="dotnet_bot.png" HorizontalOptions="End"/> -->
+
+        <ListView x:Name="test_LV" Grid.Row="1" IsPullToRefreshEnabled ="True">
+            <ListView.Header>
+            <Grid Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <Label 
+                               Grid.Column="0"
+                               Text="Type"
+                               FontAttributes="Bold"
+                               />
+                    <Label 
+                               Grid.Column="1"
+                               Text="Channel"
+                               FontAttributes="Bold"
+                               />
+                    <Label 
+                               Grid.Column="2"
+                               Text="Reading"
+                               FontAttributes="Bold"
+                               />
+                    <Label 
+                               Grid.Column="3"
+                               Text="Other"
+                               FontAttributes="Bold"
+                               />
+                </Grid>
+            </ListView.Header>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                    <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="100" />
+                            </Grid.ColumnDefinitions>
+                            <Label 
+                            Grid.Column="0"
+                            Grid.Row="0"
+                            Grid.ColumnSpan="4"
+                            Text="{Binding TimeStamp}"
+                            FontAttributes="Italic" />
+                            <Label 
+                            Grid.Column="0"
+                            Grid.Row="1"
+                            Text="{Binding Type}"
+                            FontAttributes="Bold"
+                           />
+                            <Label 
+                            Grid.Column="1"
+                            Grid.Row="1"
+                            Text="{Binding Channel}"
+                            FontAttributes="Bold"
+                           />
+                            <Label 
+                            Grid.Column="2"
+                            Grid.Row="1"
+                            Text="{Binding Value1}"
+                            FontAttributes="Bold"
+                           />
+                            <Label 
+                            Grid.Column="3"
+                            Grid.Row="1"
+                            Text="{Binding Value2}"
+                            FontAttributes="Bold"
+                           />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>
